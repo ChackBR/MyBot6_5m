@@ -30,6 +30,9 @@
 
 	; Config Read for SwitchAcc Mode - DEMEN
 
+		IniReadS($ichkSwitchAcc, $profile, "Switch Account", "Enable", "0")
+		IniReadS($icmbTotalCoCAcc, $profile, "Switch Account", "Total Coc Account", "-1")
+		IniReadS($ichkSmartSwitch, $profile, "Switch Account", "Smart Switch", "0")
 		$ichkCloseTraining = Number(IniRead($profile, "Switch Account", "Sleep Combo", "0"))	; Sleep Combo, 1 = Close CoC, 2 = Close Android, 0 = No sleep
 
 		For $i = 0 to 7
