@@ -126,18 +126,22 @@ Func MatchProfileAcc($Num)
 	   saveConfig()
 	EndIf
 
-	If _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) <> -1 And _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) >= 0 Then
-	   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1 & "] has been assigned to Profile [" & _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) + 1 & "]" ,30, $hGUI_BOT)
-	   _GUICtrlComboBox_SetCurSel($cmbAccountNo[$Num], -1)
-	   _GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], -1)
-	   saveConfig()
-	EndIf
+	If _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) >= 0 Then
+		If _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) <> -1 Then
+		   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1 & "] has been assigned to Profile ["_
+				& _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) + 1 & "]" ,30, $hGUI_BOT)
+		   _GUICtrlComboBox_SetCurSel($cmbAccountNo[$Num], -1)
+		   _GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], -1)
+		   saveConfig()
+		ElseIf UBound(_ArrayFindAll($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1)) > 1 Then
+		   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) & "] has been assigned to another profile" ,30, $hGUI_BOT)
+		   _GUICtrlComboBox_SetCurSel($cmbAccountNo[$Num], -1)
+		   _GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], -1)
+		   saveConfig()
+		Else
+			_GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], 0)
+		EndIf
 
-	If UBound(_ArrayFindAll($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1)) > 1 And _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) >= 0 Then
-	   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) & "] has been assigned to another profile" ,30, $hGUI_BOT)
-	   _GUICtrlComboBox_SetCurSel($cmbAccountNo[$Num], -1)
-	   _GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], -1)
-	   saveConfig()
 	EndIf
 
 EndFunc ;===> MatchProfileAcc
@@ -160,28 +164,30 @@ Func btnLocateAcc()
 		$stext = "Click Connect/Disconnect on emulator to show the accout list" & @CRLF & @CRLF & _
 				"Click OK then click on your Account No. " & $AccNo & @CRLF & @CRLF & _
 				GetTranslated(640,26,"Do not move mouse quickly after clicking location") & @CRLF & @CRLF
-		$MsgBox = _ExtMsgBox(0, GetTranslated(640,1,"Ok|Cancel"), "Locate CoC Account No. " & $AccNo, $stext, 15, $frmBot)
+		$MsgBox = _ExtMsgBox(0, GetTranslated(640,1,"Ok|Cancel"), "Locate CoC Account No. " & $AccNo, $stext, 60, $frmBot)
 		If $MsgBox = 1 Then
 			WinGetAndroidHandle()
 			Local $aPos = FindPos()
-			$aAccPosY[$AccNo-1] = Int($aPos[1])
+			$aLocateAccConfig[$AccNo-1] = Int($aPos[1])
 			ClickP($aAway, 1, 0, "#0379")
 		Else
 			SetLog("Locate CoC Account Cancelled", $COLOR_BLUE)
 			ClickP($aAway, 1, 0, "#0382")
 			Return
 		EndIf
-		SetLog("Locate CoC Account Success: " & "(383, " & $aAccPosY[$AccNo-1] & ")", $COLOR_GREEN)
+		SetLog("Locate CoC Account Success: " & "(383, " & $aLocateAccConfig[$AccNo-1] & ")", $COLOR_GREEN)
 
 		ExitLoop
 	WEnd
 	Clickp($aAway, 2, 0, "#0207")
 	saveConfig()
 
+
 EndFunc   ;==>LocateAcc
 
 Func btnClearAccLocation()
 	For $i = 1 to 8
+		$aLocateAccConfig[$i-1] = -1
 		$aAccPosY[$i-1] = -1
 	Next
 	Setlog("Position of all accounts cleared")

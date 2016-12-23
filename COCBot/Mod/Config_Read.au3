@@ -1,6 +1,6 @@
 ; #FUNCTION# ====================================================================================================================
-; Name ..........: Config read - Mod.au3
-; Description ...: Extension of readConfig() for Mod
+; Name ..........: Config_Read.au3
+; Description ...: Reads config file and sets variables
 ; Syntax ........: readConfig()
 ; Parameters ....: NA
 ; Return values .: NA

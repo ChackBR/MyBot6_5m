@@ -61,9 +61,9 @@ $grpSwitchAcc = GUICtrlCreateGroup("Switch Account Mode", $x - 12, $y - 20, 200,
 
 		$lblLocateAcc = GUICtrlCreateLabel("Manually locate account coordinates", $x, $y, -1, -1)
 
-		$cmbLocateAcc = GUICtrlCreateCombo("Acc. No", $x + 15, $y + 25, 60, 18, BitOR($CBS_DROPDOWNLIST, $CBS_AUTOHSCROLL))
+		$cmbLocateAcc = GUICtrlCreateCombo("", $x + 15, $y + 25, 60, 18, BitOR($CBS_DROPDOWNLIST, $CBS_AUTOHSCROLL))
 			$txtTip = "Select CoC Account to manually locate its y-coordinate"
-			GUICtrlSetData(-1, "Acc. 1" & "|" & "Acc. 2" & "|" & "Acc. 3" & "|" & "Acc. 4" & "|" & "Acc. 5" & "|" & "Acc. 6" & "|" & "Acc. 7" & "|" & "Acc. 8")
+			GUICtrlSetData(-1, "Acc. 1" & "|" & "Acc. 2" & "|" & "Acc. 3" & "|" & "Acc. 4" & "|" & "Acc. 5" & "|" & "Acc. 6" & "|" & "Acc. 7" & "|" & "Acc. 8", "Acc. 1")
 			GUICtrlSetTip(-1, $txtTip)
 
 		GUICtrlCreateButton("Locate", $x + 80, $y + 24 , 50, 23)

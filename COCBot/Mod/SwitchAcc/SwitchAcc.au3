@@ -31,17 +31,17 @@ Func InitiateSwitchAcc() ; Checking profiles setup in Mybot, First matching CoC 
    Next
 
    If $icmbTotalCoCAcc <> -1 then
-	   $nTotalCoCAcc = $icmbTotalCoCAcc + 1
-	   Setlog ("Total CoC Account(s)is declared: " & $nTotalCoCAcc)
+	   $nTotalCoCAcc = $icmbTotalCoCAcc
+	   Setlog ("Total CoC Account is declared: " & $nTotalCoCAcc)
    Else
 	   $nTotalCoCAcc = 8
-	   Setlog ("Total CoC Account(s) has not declared, default: " & $nTotalCoCAcc)
+	   Setlog ("Total CoC Account has not declared, default: " & $nTotalCoCAcc)
    EndIf
 
    ; Locating CoC Accounts
    If _ArrayMax($aAccPosY) > 0 Then
 	   $MaxIdx = _ArrayMaxIndex($aAccPosY)
-	   For $i = 1 to _Min($nTotalCoCAcc,8)
+	   For $i = 1 to $nTotalCoCAcc
 		   If $aAccPosY[$i-1] <= 0 Then $aAccPosY[$i-1] = $aAccPosY[$MaxIdx] + 73*($i-1-$MaxIdx)
 		   Setlog("  >>> Y-coordinate Acc No. " & $i & " is located at: " & $aAccPosY[$i-1])
 	   Next
@@ -62,9 +62,11 @@ Func InitiateSwitchAcc() ; Checking profiles setup in Mybot, First matching CoC 
 	  EndIf
    Else																		; There is no active profile
 	  $i = _ArraySearch($aProfileType, 2)
-	  Setlog("Try to avoid Idle Profile. Switching to Profile [" & $i+1 &"] - CoC Acc [" & $aMatchProfileAcc[$i] & "]")
-	  _GUICtrlComboBox_SetCurSel($cmbProfile, $i)							; Move to first Donate Profile
-	  cmbProfile()
+	  If $i >= 0 Then
+		  Setlog("Try to avoid Idle Profile. Switching to Profile [" & $i+1 &"] - CoC Acc [" & $aMatchProfileAcc[$i] & "]")
+		  _GUICtrlComboBox_SetCurSel($cmbProfile, $i)							; Move to first Donate Profile
+		  cmbProfile()
+	  EndIf
    EndIf
 
    $nCurProfile = _GuiCtrlComboBox_GetCurSel($cmbProfile) + 1

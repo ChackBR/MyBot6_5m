@@ -1,9 +1,9 @@
 ; #FUNCTION# ====================================================================================================================
-; Name ..........: Config apply - Mod.au3
-; Description ...: Extension of applyConfig() for Mod
-; Syntax ........: applyConfig()
+; Name ..........: Config_Apply.au3
+; Description ...: Applies all of the  variable to the GUI
+; Syntax ........:
 ; Parameters ....:
-; Return values .:
+; Return values .: NA
 ; Author ........:
 ; Modified ......:
 ; Remarks .......: This file is part of MyBot, previously known as ClashGameBot. Copyright 2015-2016

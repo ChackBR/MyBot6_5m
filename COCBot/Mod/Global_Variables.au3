@@ -69,4 +69,4 @@ Global $aUpdateRemainTrainTime[8]
 Global $nNexProfile
 Global $nMinRemainTrain
 
-Global $aAccPosY[8]
+Global $aLocateAccConfig[8], $aAccPosY[8]

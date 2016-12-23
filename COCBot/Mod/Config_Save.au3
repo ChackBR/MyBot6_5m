@@ -1,9 +1,9 @@
 ; #FUNCTION# ====================================================================================================================
-; Name ..........: Config save - Mod.au3
-; Description ...: Extension of saveConfig() for Mod
-; Syntax ........: saveConfig()
-; Parameters ....: NA
-; Return values .: NA
+; Name ..........: saveConfig.au3
+; Description ...:
+; Syntax ........:
+; Parameters ....:
+; Return values .:
 ; Author ........:
 ; Modified ......:
 ; Remarks .......: This file is part of MyBot, previously known as ClashGameBot. Copyright 2015-2016
@@ -65,5 +65,5 @@
 	Next
 
 	For $i = 1 to 8
-		IniWriteS($profile, "Switch Account", "AccLocation." & $i, $aAccPosY[$i-1])
+		IniWriteS($profile, "Switch Account", "AccLocation." & $i, $aLocateAccConfig[$i-1])
 	Next
