@@ -60,7 +60,7 @@ Func Initiate()
 		ZoomOut()
 
 		If $ichkSwitchAcc = 1 Then ; SwitchAcc - Demen
-		   InitiateSwitchAcc()
+			InitiateSwitchAcc()
 		EndIf
 
 		If Not $RunState Then Return
