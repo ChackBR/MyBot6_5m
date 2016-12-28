@@ -17,53 +17,64 @@
 ; MOD Config - Save Data
 ;
 
-	; Max logout time
-	If GUICtrlRead($chkTrainLogoutMaxTime) = $GUI_CHECKED Then
-		IniWrite($config, "TrainLogout", "TrainLogoutMaxTime", 1)
-	Else
-		IniWrite($config, "TrainLogout", "TrainLogoutMaxTime", 0)
-	EndIf
-	IniWrite($config, "TrainLogout", "TrainLogoutMaxTimeTXT", GUICtrlRead($txtTrainLogoutMaxTime))
+; Max logout time
+If GUICtrlRead($chkTrainLogoutMaxTime) = $GUI_CHECKED Then
+	IniWrite($config, "TrainLogout", "TrainLogoutMaxTime", 1)
+Else
+	IniWrite($config, "TrainLogout", "TrainLogoutMaxTime", 0)
+EndIf
+IniWrite($config, "TrainLogout", "TrainLogoutMaxTimeTXT", GUICtrlRead($txtTrainLogoutMaxTime))
 
-	; Multi Finger (LunaEclipse)
-	IniWrite($config, "MultiFinger", "Select", _GUICtrlComboBox_GetCurSel($cmbDBMultiFinger))
+; Multi Finger (LunaEclipse)
+IniWrite($config, "MultiFinger", "Select", _GUICtrlComboBox_GetCurSel($cmbDBMultiFinger))
+
+;
+; AwesomeGamer
+;
+
+; DEB
+If GUICtrlRead($chkDontRemove) = $GUI_CHECKED Then
+	IniWrite($config, "troop", "DontRemove", 1)
+Else
+	IniWrite($config, "troop", "DontRemove", 0)
+EndIf
 
 ;
 ; DEMEN
 ;
 
-	If GUICtrlRead($chkSwitchAcc) = $GUI_CHECKED Then
-		IniWrite($profile, "Switch Account", "Enable", 1)
+If GUICtrlRead($chkSwitchAcc) = $GUI_CHECKED Then
+	IniWrite($profile, "Switch Account", "Enable", 1)
+Else
+	IniWrite($profile, "Switch Account", "Enable", 0)
+EndIf
+
+IniWrite($profile, "Switch Account", "Total Coc Account", _GUICtrlCombobox_GetCurSel($cmbTotalAccount)+1)		; 1 = 1 Acc, 2 = 2 Acc, etc.
+
+If GUICtrlRead($radSmartSwitch) = $GUI_CHECKED Then
+   IniWrite($profile, "Switch Account", "Smart Switch", 1)
+Else
+   IniWrite($profile, "Switch Account", "Smart Switch", 0)
+EndIf
+
+If GUICtrlRead($chkUseTrainingClose) = $GUI_CHECKED Then
+	If GUICtrlRead($radCloseCoC) = $GUI_CHECKED Then
+		IniWrite($profile, "Switch Account", "Sleep Combo", 1)		; Sleep Combo = 1 => Close CoC
 	Else
-		IniWrite($profile, "Switch Account", "Enable", 0)
+		IniWrite($profile, "Switch Account", "Sleep Combo", 2)		; Sleep Combo = 2 => Close Android
 	EndIf
+Else
+	IniWrite($profile, "Switch Account", "Sleep Combo", 0)
+EndIf
 
-	IniWrite($profile, "Switch Account", "Total Coc Account", _GUICtrlCombobox_GetCurSel($cmbTotalAccount)+1)		; 1 = 1 Acc, 2 = 2 Acc, etc.
+For $i = 1 to 8
+	IniWriteS($profile, "Switch Account", "MatchProfileAcc." & $i, _GUICtrlCombobox_GetCurSel($cmbAccountNo[$i-1])+1)		; 1 = Acc 1, 2 = Acc 2, etc.
+Next
 
-	If GUICtrlRead($radSmartSwitch) = $GUI_CHECKED Then
-	   IniWrite($profile, "Switch Account", "Smart Switch", 1)
-	Else
-	   IniWrite($profile, "Switch Account", "Smart Switch", 0)
-	EndIf
+For $i = 1 to 8
+	IniWriteS($profile, "Switch Account", "ProfileType." & $i, _GUICtrlCombobox_GetCurSel($cmbProfileType[$i-1])+1)			; 1 = Active, 2 = Donate, 3 = Idle
+Next
 
-	If GUICtrlRead($chkUseTrainingClose) = $GUI_CHECKED Then
-		If GUICtrlRead($radCloseCoC) = $GUI_CHECKED Then
-			IniWrite($profile, "Switch Account", "Sleep Combo", 1)		; Sleep Combo = 1 => Close CoC
-		Else
-			IniWrite($profile, "Switch Account", "Sleep Combo", 2)		; Sleep Combo = 2 => Close Android
-		EndIf
-	Else
-		IniWrite($profile, "Switch Account", "Sleep Combo", 0)
-	EndIf
-
-	For $i = 1 to 8
-		IniWriteS($profile, "Switch Account", "MatchProfileAcc." & $i, _GUICtrlCombobox_GetCurSel($cmbAccountNo[$i-1])+1)		; 1 = Acc 1, 2 = Acc 2, etc.
-	Next
-
-	For $i = 1 to 8
-		IniWriteS($profile, "Switch Account", "ProfileType." & $i, _GUICtrlCombobox_GetCurSel($cmbProfileType[$i-1])+1)			; 1 = Active, 2 = Donate, 3 = Idle
-	Next
-
-	For $i = 1 to 8
-		IniWriteS($profile, "Switch Account", "AccLocation." & $i, $aLocateAccConfig[$i-1])
-	Next
+For $i = 1 to 8
+	IniWriteS($profile, "Switch Account", "AccLocation." & $i, $aLocateAccConfig[$i-1])
+Next
