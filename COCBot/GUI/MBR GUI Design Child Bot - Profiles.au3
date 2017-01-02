@@ -102,6 +102,5 @@ Local $x = 25, $y = 45
 
 	#include "..\MOD\GUI Design - SwitchAcc.au3"									;	SwitchAcc Mode - Demen
 
-
 	GUICtrlCreateGroup("", -99, -99, 1, 1)
 ;GUISetState()
