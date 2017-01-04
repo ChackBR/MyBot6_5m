@@ -53,9 +53,10 @@ Local $sModversion
 ; "2513" ; MyBot v6.5.1 + Fix for QuickTrain
 ; "2514" ; MyBot v6.5.1 + DEB( Don't Empty Barracks )
 ; "2601" ; MyBot v6.5.2
-$sModversion = "2602" ; MyBot v6.5.2 + SmartZap Fix
+; "2602" ; MyBot v6.5.2 + SmartZap Fix
+$sModversion = "2603" ; MyBot v6.5.2 + SmartZap Fix
 $sBotVersion = "v6.5.2" ;~ Don't add more here, but below. Version can't be longer than vX.y.z because it is also use on Checkversion()
-$sBotTitle = "My Bot " & $sBotVersion & ".d" & $sModversion & " " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
+$sBotTitle = "My Bot " & $sBotVersion & ".m" & $sModversion & " " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
 
 #include "COCBot\functions\Config\DelayTimes.au3"
 #include "COCBot\MBR Global Variables.au3"
@@ -236,7 +237,7 @@ DisableProcessWindowsGhosting()
 ProcessSetPriority(@AutoItPID, $iBotProcessPriority)
 
 ; ensure watchdog is launched
-LaunchWatchdog()
+; LaunchWatchdog()
 
 ;AutoStart Bot if request
 AutoStart()
@@ -644,7 +645,7 @@ Func Attack() ;Selects which algorithm
 		Algorithm_AttackCSV()
 	ElseIf $iMatchMode = $DB And $iAtkAlgorithm[$DB] = 2 Then
 		If $debugsetlog = 1 Then Setlog("start milking attack", $COLOR_ERROR)
-		Alogrithm_MilkingAttack()
+		Algorithm_MilkingAttack()
 	Else
 		If $debugsetlog = 1 Then Setlog("start standard attack", $COLOR_ERROR)
 		algorithm_AllTroops()
