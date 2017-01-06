@@ -86,30 +86,3 @@
 		_GUICtrlCombobox_SetCurSel($cmbAccountNo[$i], $aMatchProfileAcc[$i]-1)
 		_GUICtrlCombobox_SetCurSel($cmbProfileType[$i], $aProfileType[$i]-1)
 	Next
-
-	;=========== Adding SimpleQuicktrain- DEMEN
-	If $ichkSimpleQuickTrain = 1 Then
-		GUICtrlSetState($chkSimpleQuickTrain, $GUI_CHECKED)
-	Else
-		GUICtrlSetState($chkSimpleQuickTrain, $GUI_UNCHECKED)
-	EndIf
-
-	If $ichkFillArcher = 1 Then
-		GUICtrlSetState($chkFillArcher, $GUI_CHECKED)
-	Else
-		GUICtrlSetState($chkFillArcher, $GUI_UNCHECKED)
-	EndIf
-	GUICtrlSetData($txtFillArcher, $iFillArcher)
-
-	If $ichkFillPoison = 1 Then
-		GUICtrlSetState($chkFillPoison, $GUI_CHECKED)
-	Else
-		GUICtrlSetState($chkFillPoison, $GUI_UNCHECKED)
-	EndIf
-
-	If $ichkTrainDonated = 1 Then
-		GUICtrlSetState($chkTrainDonated, $GUI_CHECKED)
-	Else
-		GUICtrlSetState($chkTrainDonated, $GUI_UNCHECKED)
-	EndIf
-

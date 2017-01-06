@@ -200,16 +200,3 @@ Func btnClearAccLocation()
 EndFunc
 
 ; ============= SwitchAcc Mode ============= - DEMEN
-
-; GUI Control for SimpleQuickTrain
-Func chkSimpleQuickTrain()
-	If GUICtrlRead($chkSimpleQuickTrain) = $GUI_CHECKED Then
-		_GUI_Value_STATE("ENABLE", $chkFillArcher & "#" & $txtFillArcher & "#" & $chkFillPoison & "#" & $chkTrainDonated)
-
-	Else
-		_GUI_Value_STATE("DISABLE", $chkFillArcher & "#" & $txtFillArcher & "#" & $chkFillPoison & "#" & $chkTrainDonated)
-		_GUI_Value_STATE("UNCHECKED", $chkFillArcher & "#" & $chkFillPoison & "#" & $chkTrainDonated)
-
-	EndIf
-EndFunc   ;==>chkSimpleQuickTrain
-; ======================== SimpleQuickTrain ========================
