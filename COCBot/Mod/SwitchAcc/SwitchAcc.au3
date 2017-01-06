@@ -203,13 +203,13 @@ Func SwitchProfile($SwitchCase) 										; Switch profile (1 = Active, 2 = Dona
 	 Else
 		$NextProfile = 1
 	 EndIf
-	 While $aProfileType[$NextProfile-1] = 3
+	 While $aProfileType[$NextProfile-1] = 3 OR $aProfileType[$NextProfile-1] = 0
 		If $NextProfile < $nTotalProfile Then
 		   $NextProfile += 1
 		Else
 		   $NextProfile = 1
 		EndIf
-		If $aProfileType[$NextProfile-1] <> 3 Then ExitLoop
+		If $aProfileType[$NextProfile-1] <> 3 AND $aProfileType[$NextProfile-1] <> 0 Then ExitLoop
 	  WEnd
      _GUICtrlComboBox_SetCurSel($cmbProfile, $NextProfile-1)
 	  cmbProfile()
@@ -243,13 +243,13 @@ Func CheckSwitchAcc(); Switch CoC Account with or without sleep combo - DEMEN
 
    ClickP($aAway, 1, 0, "#0000") ;Click Away
 
-   If $aProfileType[$nCurProfile-1] = 2 Or _ArrayMax($aTimeTrain)> 3 Then
+   If $aProfileType[$nCurProfile-1] = 2 Or _ArrayMax($aTimeTrain)> 0 Then
 	  Local $SwitchCase
 	  $aDonateProfile = _ArrayFindAll($aProfileType, 2)
 	  MinRemainTrainAcc()
 
 	  If $ichkSmartSwitch = 1 And _ArraySearch($aProfileType, 1) <> -1 Then		; Smart switch and there is at least 1 active profile
-		 If $nMinRemainTrain <= 3 Then
+		 If $nMinRemainTrain <= 0 Then
 			If $nCurProfile <> $nNexProfile Then
 			   $SwitchCase = 1
 			Else

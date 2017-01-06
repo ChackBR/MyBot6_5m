@@ -111,7 +111,6 @@ Func btnDeleteCancel()
 				Else
 					; create new default profile
 					createProfile(True)
-				EndIf
 
 ;====== SwitchAcc - DEMEN ==============
 				Local $UpdatedProfileList = _GUICtrlComboBox_GetListArray($cmbProfile)
@@ -131,6 +130,7 @@ Func btnDeleteCancel()
 				btnUpdateProfile()
 ;====== SwitchAcc - DEMEN ==============
 
+				EndIf
 			EndIf
 		Case $btnCancel
 			GUICtrlSetState($txtVillageName, $GUI_HIDE)
@@ -256,7 +256,6 @@ Func btnLocateKingAltar()
 	LocateKingAltar()
 EndFunc   ;==>btnLocateKingAltar
 
-
 Func btnLocateQueenAltar()
 	LocateQueenAltar()
 EndFunc   ;==>btnLocateQueenAltar
@@ -286,8 +285,6 @@ Func btnLocateTownHall()
 	$RunState = $wasRunState
 	AndroidShield("btnLocateTownHall") ; Update shield status due to manual $RunState
 EndFunc   ;==>btnLocateTownHall
-
-
 
 Func btnResetBuilding()
 	Local $wasRunState = $RunState

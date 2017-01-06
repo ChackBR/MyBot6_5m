@@ -17,37 +17,40 @@
 ; MOD Config - Save Data
 ;
 
-; Max logout time
-$TrainLogoutMaxTime = IniRead($config, "TrainLogout", "TrainLogoutMaxTime", "0")
-$TrainLogoutMaxTimeTXT = IniRead($config, "TrainLogout", "TrainLogoutMaxTimeTXT", "20")
+	; Max logout time
+	$TrainLogoutMaxTime = IniRead($config, "TrainLogout", "TrainLogoutMaxTime", "0")
+	$TrainLogoutMaxTimeTXT = IniRead($config, "TrainLogout", "TrainLogoutMaxTimeTXT", "20")
 
-; Multi Finger (LunaEclipse)
-$iMultiFingerStyle = IniRead($config, "MultiFinger", "Select", "1")
+;
+; LunaEclipse
+;
 
-; CSV Deployment Speed Mod
-IniReadS($isldSelectedCSVSpeed[$DB], $config, "attack", "CSVSpeedDB", 4)
-IniReadS($isldSelectedCSVSpeed[$LB], $config, "attack", "CSVSpeedAB", 4)
+	; Multi Finger
+	$iMultiFingerStyle = IniRead($config, "MultiFinger", "Select", "1")
+
+	; CSV Deployment Speed Mod
+	IniReadS($isldSelectedCSVSpeed[$DB], $config, "attack", "CSVSpeedDB", 4)
+	IniReadS($isldSelectedCSVSpeed[$LB], $config, "attack", "CSVSpeedAB", 4)
 
 ;
 ; AwesomeGamer
 ;
 
-; DEB
-$iChkDontRemove = IniRead($config, "troop", "DontRemove", "0")
+	; DEB
+	$iChkDontRemove = IniRead($config, "troop", "DontRemove", "0")
 
 ;
 ; DEMEN
 ;
 
-; Config Read for SwitchAcc Mode - DEMEN
+	; Config Read for SwitchAcc Mode - DEMEN
+	IniReadS($ichkSwitchAcc, $profile, "Switch Account", "Enable", "0")
+	IniReadS($icmbTotalCoCAcc, $profile, "Switch Account", "Total Coc Account", "-1")
+	IniReadS($ichkSmartSwitch, $profile, "Switch Account", "Smart Switch", "0")
+	$ichkCloseTraining = Number(IniRead($profile, "Switch Account", "Sleep Combo", "0"))	; Sleep Combo, 1 = Close CoC, 2 = Close Android, 0 = No sleep
 
-IniReadS($ichkSwitchAcc, $profile, "Switch Account", "Enable", "0")
-IniReadS($icmbTotalCoCAcc, $profile, "Switch Account", "Total Coc Account", "-1")
-IniReadS($ichkSmartSwitch, $profile, "Switch Account", "Smart Switch", "0")
-$ichkCloseTraining = Number(IniRead($profile, "Switch Account", "Sleep Combo", "0"))	; Sleep Combo, 1 = Close CoC, 2 = Close Android, 0 = No sleep
-
-For $i = 0 to 7
-	IniReadS($aMatchProfileAcc[$i],$profile, "Switch Account", "MatchProfileAcc." & $i+1, "-1")
-	IniReadS($aProfileType[$i], $profile, "Switch Account", "ProfileType." & $i+1, "-1")
-	IniReadS($aAccPosY[$i], $profile, "Switch Account", "AccLocation." & $i+1, "-1")
-Next
+	For $i = 0 to 7
+		IniReadS($aMatchProfileAcc[$i],$profile, "Switch Account", "MatchProfileAcc." & $i+1, "-1")
+		IniReadS($aProfileType[$i], $profile, "Switch Account", "ProfileType." & $i+1, "-1")
+		IniReadS($aAccPosY[$i], $profile, "Switch Account", "AccLocation." & $i+1, "-1")
+	Next

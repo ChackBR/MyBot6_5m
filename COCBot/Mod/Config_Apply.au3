@@ -17,38 +17,44 @@
 ; MOD Config - Save Data
 ;
 
-;Max logout time
-If $TrainLogoutMaxTime = 1 Then
-	GUICtrlSetState($chkTrainLogoutMaxTime, $GUI_CHECKED)
-ElseIf $TrainLogoutMaxTime = 0 Then
-	GUICtrlSetState($chkTrainLogoutMaxTime, $GUI_UNCHECKED)
-EndIf
-GUICtrlSetData($txtTrainLogoutMaxTime, $TrainLogoutMaxTimeTXT)
+	;Max logout time
+	If $TrainLogoutMaxTime = 1 Then
+		GUICtrlSetState($chkTrainLogoutMaxTime, $GUI_CHECKED)
+	ElseIf $TrainLogoutMaxTime = 0 Then
+		GUICtrlSetState($chkTrainLogoutMaxTime, $GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($txtTrainLogoutMaxTime, $TrainLogoutMaxTimeTXT)
 
-; Multi Finger (LunaEclipse)
-_GUICtrlComboBox_SetCurSel($cmbDBMultiFinger,$iMultiFingerStyle)
-cmbDBMultiFinger()
+;
+; LunaEclipse
+;
 
-; CSV Deployment Speed Mod
-GUICtrlSetData($sldSelectedSpeedDB, $isldSelectedCSVSpeed[$DB])
-GUICtrlSetData($sldSelectedSpeedAB, $isldSelectedCSVSpeed[$LB])
-sldSelectedSpeedDB()
-sldSelectedSpeedAB()
+	; Multi Finger
+	_GUICtrlComboBox_SetCurSel($cmbDBMultiFinger,$iMultiFingerStyle)
+	cmbDBMultiFinger()
+
+	; CSV Deployment Speed Mod
+	GUICtrlSetData($sldSelectedSpeedDB, $isldSelectedCSVSpeed[$DB])
+	GUICtrlSetData($sldSelectedSpeedAB, $isldSelectedCSVSpeed[$LB])
+	sldSelectedSpeedDB()
+	sldSelectedSpeedAB()
+
 ;
 ; AwesomeGamer
 ;
 
-; DEB
-If $iChkDontRemove = 1 Then
-	GUICtrlSetState($chkDontRemove, $GUI_CHECKED)
-Else
-	GUICtrlSetState($chkDontRemove, $GUI_UNCHECKED)
-EndIf
+	; DEB
+	If $iChkDontRemove = 1 Then
+		GUICtrlSetState($chkDontRemove, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkDontRemove, $GUI_UNCHECKED)
+	EndIf
 
 ;
 ; DEMEN
 ;
 
+	; Config Apply for SwitchAcc Mode - DEMEN
  	If $ichkSwitchAcc = 1 Then
  		GUICtrlSetState($chkSwitchAcc, $GUI_CHECKED)
  	Else
@@ -80,3 +86,30 @@ EndIf
 		_GUICtrlCombobox_SetCurSel($cmbAccountNo[$i], $aMatchProfileAcc[$i]-1)
 		_GUICtrlCombobox_SetCurSel($cmbProfileType[$i], $aProfileType[$i]-1)
 	Next
+
+	;=========== Adding SimpleQuicktrain- DEMEN
+	If $ichkSimpleQuickTrain = 1 Then
+		GUICtrlSetState($chkSimpleQuickTrain, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkSimpleQuickTrain, $GUI_UNCHECKED)
+	EndIf
+
+	If $ichkFillArcher = 1 Then
+		GUICtrlSetState($chkFillArcher, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkFillArcher, $GUI_UNCHECKED)
+	EndIf
+	GUICtrlSetData($txtFillArcher, $iFillArcher)
+
+	If $ichkFillPoison = 1 Then
+		GUICtrlSetState($chkFillPoison, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkFillPoison, $GUI_UNCHECKED)
+	EndIf
+
+	If $ichkTrainDonated = 1 Then
+		GUICtrlSetState($chkTrainDonated, $GUI_CHECKED)
+	Else
+		GUICtrlSetState($chkTrainDonated, $GUI_UNCHECKED)
+	EndIf
+

@@ -25,7 +25,8 @@ Func checkObstacles() ;Checks if something is in the way for mainscreen
     If _ColorCheck(_GetPixelColor(383, 405), Hex(0xF0BE70, 6), 20) Then
 		SetLog("Found SwitchAcc Dialog")
 		PureClick(383, 405, 1, 0, "Click Cancel")      ;Click Cancel
-	EndIf		; SwitchAcc - DEMEN
+	EndIf
+; SwitchAcc - DEMEN
 
 	; prevent recursion
 	If $checkObstaclesActive = True Then Return True

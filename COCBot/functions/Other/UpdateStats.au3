@@ -444,6 +444,7 @@ Func UpdateStats()
 	EndIf
 
 	If $ichkSwitchAcc = 1 Then UpdateStatsForSwitchAcc()	;	SwitchAcc Mode - Demen
+
 	If $ResetStats = 1 Then
 		$ResetStats = 0
 	EndIf
