@@ -263,6 +263,8 @@ WEnd
 Func runBot() ;Bot that runs everything in order
 
 	If $ichkSwitchAcc = 1 And $bReMatchAcc = True Then 				; SwitchAcc - DEMEN
+		Setlog("Prepare base before SwitchAcc..", $COLOR_INFO)
+		CheckBaseQuick(True) ; check and restock base before exit.
 		$nCurProfile = _GUICtrlCombobox_GetCurSel($cmbProfile) + 1
 		Setlog("Rematching Profile [" & $nCurProfile &"] - " & $ProfileList[$nCurProfile] & " (CoC Acc. " & $aMatchProfileAcc[$nCurProfile-1] & ")")
 		SwitchCoCAcc()
