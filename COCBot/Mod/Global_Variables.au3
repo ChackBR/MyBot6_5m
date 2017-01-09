@@ -77,6 +77,11 @@ Global $chkDBNoLeague, $chkABNoLeague, $iChkNoLeague[$iModeCount]
 ; DEMEN
 ;
 
+;Variables for SwitchAcc Mode - DEMEN
+
+Global $sModversion2 = "SwitchAcc"		; DEMEN Mod
+
+
 Global $profile = $sProfilePath & "\Profile.ini"
 Global $ichkSwitchAcc = 0
 

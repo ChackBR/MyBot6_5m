@@ -25,7 +25,11 @@
 	EndIf
 	IniWrite($config, "TrainLogout", "TrainLogoutMaxTimeTXT", GUICtrlRead($txtTrainLogoutMaxTime))
 
-	; Multi Finger (LunaEclipse)
+;
+; LunaEclipse
+;
+
+	; Multi Finger
 	IniWrite($config, "MultiFinger", "Select", _GUICtrlComboBox_GetCurSel($cmbDBMultiFinger))
 
 	; CSV Deployment Speed Mod

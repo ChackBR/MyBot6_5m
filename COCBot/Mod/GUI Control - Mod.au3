@@ -128,8 +128,8 @@ Func MatchProfileAcc($Num)
 
 	If _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num]) >= 0 Then
 		If _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) <> -1 Then
-		   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1 & "] has been assigned to Profile [" &_
-				_ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) + 1 & "]" ,30, $hGUI_BOT)
+		   MsgBox($MB_OK, "SwitchAcc Mode", "Account [" & _GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1 & "] has been assigned to Profile [" _
+				& _ArraySearch($aMatchProfileAcc,_GUICtrlComboBox_GetCurSel($cmbAccountNo[$Num])+1) + 1 & "]" ,30, $hGUI_BOT)
 		   _GUICtrlComboBox_SetCurSel($cmbAccountNo[$Num], -1)
 		   _GUICtrlComboBox_SetCurSel($cmbProfileType[$Num], -1)
 		   btnUpdateProfile()
@@ -198,5 +198,4 @@ Func btnClearAccLocation()
 	Setlog("Position of all accounts cleared")
 	saveConfig()
 EndFunc
-
 ; ============= SwitchAcc Mode ============= - DEMEN
