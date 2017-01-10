@@ -40,12 +40,12 @@
 ; AwesomeGamer
 ;
 
-; DEB
-If GUICtrlRead($chkDontRemove) = $GUI_CHECKED Then
-	IniWrite($config, "troop", "DontRemove", 1)
-Else
-	IniWrite($config, "troop", "DontRemove", 0)
-EndIf
+	; DEB
+	If GUICtrlRead($chkDontRemove) = $GUI_CHECKED Then
+		IniWrite($config, "troop", "DontRemove", 1)
+	Else
+		IniWrite($config, "troop", "DontRemove", 0)
+	EndIf
 
 ;
 ; DEMEN
