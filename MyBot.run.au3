@@ -44,20 +44,13 @@ Local $sModversion
 ; "2301" ; MyBot v6.3.0
 ; "2401" ; MyBot v6.4.0 ( FFC, Multi Finger, SmartZap, ... )
 ; "2501" ; MyBot v6.5
-; "2502" ; MyBot v6.5 + Fix for Quick Train
-; "2503" ; MyBot v6.5 + Heroes Power Fix
-; "2504" ; MyBot v6.5 + SmartZap Fix
-; "2505" ; MyBot v6.5 + Demem Switch Acc
-; "2511" ; MyBot v6.5.1
-; "2512" ; MyBot v6.5.1 + Fix Donate + Fix for Train Golem
-; "2513" ; MyBot v6.5.1 + Fix for QuickTrain
-; "2514" ; MyBot v6.5.1 + DEB( Don't Empty Barracks )
 ; "2601" ; MyBot v6.5.2
 ; "2602" ; MyBot v6.5.2 + SmartZap Fix
 ; "2603" ; MyBot v6.5.2 + SmartZap Fix
 ; "2604" ; MyBot v6.5.2 + QuickTrain Update
-$sModversion = "2605" ; MyBot v6.5.2 + Sinc with Samkie MultiFinger
-$sBotVersion = "v6.5.2" ;~ Don't add more here, but below. Version can't be longer than vX.y.z because it is also use on Checkversion()
+; "2605" ; MyBot v6.5.2 + Sinc with Samkie MultiFinger
+$sModversion = "2611" ; MyBot v6.5.3
+$sBotVersion = "v6.5.3" ;~ Don't add more here, but below. Version can't be longer than vX.y.z because it is also use on Checkversion()
 $sBotTitle = "My Bot " & $sBotVersion & ".m" & $sModversion & " " ;~ Don't use any non file name supported characters like \ / : * ? " < > |
 
 #include "COCBot\functions\Config\DelayTimes.au3"
@@ -560,10 +553,6 @@ Func Idle() ;Sequence that runs until Full Army
 		$TimeIdle += Round(TimerDiff($hTimer) / 1000, 2) ;In Seconds
 
 		If $canRequestCC = True Then RequestCC()
-
-		;If $CurCamp >= $TotalCamp * $iEnableAfterArmyCamps[$DB] / 100 And $iEnableSearchCamps[$DB] = 1 And IsSearchModeActive($DB) Then ExitLoop
-		;If $CurCamp >= $TotalCamp * $iEnableAfterArmyCamps[$LB] / 100 And $iEnableSearchCamps[$LB] = 1 And IsSearchModeActive($LB) Then ExitLoop
-		;If $CurCamp >= $TotalCamp * $iEnableAfterArmyCamps[$TS] / 100 And $iEnableSearchCamps[$TS] = 1 And IsSearchModeActive($TS) Then ExitLoop
 
 		SetLog("Time Idle: " & StringFormat("%02i", Floor(Floor($TimeIdle / 60) / 60)) & ":" & StringFormat("%02i", Floor(Mod(Floor($TimeIdle / 60), 60))) & ":" & StringFormat("%02i", Floor(Mod($TimeIdle, 60))))
 

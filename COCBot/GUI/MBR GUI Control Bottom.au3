@@ -575,7 +575,7 @@ EndFunc
 Func DebugSpellsCoords()
 	$RunState = True
 
-		CheckForSantaSpell()
+		;CheckForSantaSpell()
 
 		_CaptureRegion2()
 		Local $subDirectory = $dirTempDebug & "SpellsCoords"
