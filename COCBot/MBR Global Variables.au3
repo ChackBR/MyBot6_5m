@@ -784,24 +784,11 @@ Global $WallX = 0, $WallY = 0
 Global $Wall[8]
 Global $iMaxNbWall = 4
 
-;Attack Settings
-; Old coordinates
-#cs
-	Global $TopLeft[5][2] = [[79, 281], [170, 205], [234, 162], [296, 115], [368, 66]]
-	Global $TopRight[5][2] = [[480, 63], [540, 104], [589, 146], [655, 190], [779, 278]]
-	Global $BottomLeft[5][2] = [[79, 342], [142, 389], [210, 446], [276, 492], [339, 539]]
-	Global $BottomRight[5][2] = [[523, 537], [595, 484], [654, 440], [715, 393], [779, 344]]
-#ce
-; New coordinates by Cru34
-; Global $TopLeft[5][2] = [[83, 306], [174, 238], [240, 188], [303, 142], [390, 76]]
-; Global $TopRight[5][2] = [[466, 66], [556, 134], [622, 184], [684, 231], [775, 300]]
-; Global $BottomLeft[5][2] = [[81, 363], [174, 434], [235, 481], [299, 530], [390, 600]]
-; Global $BottomRight[5][2] = [[466, 590], [554, 523], [615, 477], [678, 430], [765, 364]]
-; New coordinates by Samkie
-Global $TopLeft[5][2] = [[75, 306], [154, 246], [233, 186], [312, 126], [391, 66]]
-Global $TopRight[5][2] = [[460, 70], [538, 129], [617, 189], [695, 248], [774, 308]]
-Global $BottomLeft[5][2] = [[80, 394], [148, 446], [217, 497], [286, 549], [354, 600]]
-Global $BottomRight[5][2] = [[515, 610], [589, 554], [663, 497], [737, 443], [811, 384]]
+;Attack Settings [Dec 2016]
+Global $TopLeft[5][2] = [[62, 306], [156, 238], [221, 188], [288, 142], [383, 76]]
+Global $TopRight[5][2] = [[486, 59], [586, 134], [652, 184], [720, 231], [817, 308]]
+Global $BottomLeft[5][2] = [[20, 373], [101, 430], [171, 481], [244, 535], [346, 615]]
+Global $BottomRight[5][2] = [[530, 615], [632, 535], [704, 481], [781, 430], [848, 373]]
 Global $eThing[1] = [101]
 Global $Edges[4] = [$BottomRight, $TopLeft, $BottomLeft, $TopRight]
 
@@ -1860,6 +1847,7 @@ Global $ErrorReadCamp = True
 ;
 ; Global Variables - AwesomeGamer, LunaEclipse, ...
 ;
+Global $QuickMISX = 0, $QuickMISY = 0
 #include "MOD\Global_Variables.au3"
 
 ;=== No variables below ! ================================================
