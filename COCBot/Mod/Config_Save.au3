@@ -111,7 +111,3 @@
 	For $i = 1 to 8
 		IniWriteS($profile, "Switch Account", "ProfileType." & $i, _GUICtrlCombobox_GetCurSel($cmbProfileType[$i-1])+1)			; 1 = Active, 2 = Donate, 3 = Idle
 	Next
-
-	For $i = 1 to 8
-		IniWriteS($profile, "Switch Account", "AccLocation." & $i, $aLocateAccConfig[$i-1])
-	Next

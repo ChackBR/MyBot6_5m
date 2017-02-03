@@ -58,12 +58,13 @@ Func Initiate()
 		If Not $RunState Then Return
 
 		ZoomOut()
+		If Not $RunState Then Return
 
-		If $ichkSwitchAcc = 1 Then ; SwitchAcc - Demen
+		; SwitchAcc - Demen
+		If $ichkSwitchAcc = 1 Then
 			InitiateSwitchAcc()
 		EndIf
-
-		If Not $RunState Then Return
+		; SwitchAcc - Demen
 
 		If Not $bSearchMode Then
 			BotDetectFirstTime()

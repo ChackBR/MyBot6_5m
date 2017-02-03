@@ -36,11 +36,9 @@
 				For $j = $aStartHide[$i] To $aEndHide[$i]
 				   GUICtrlSetState($j, $GUI_SHOW)
 				Next
-
 				Switch $aProfileType[$i]
 					Case 1
 						GUICtrlSetData($grpVillageAcc[$i], "Village: " & $ProfileList[$i+1] & " (Active)")
-
 					Case 2
 						GUICtrlSetData($grpVillageAcc[$i], "Village: " & $ProfileList[$i+1] & " (Donate)")
 						For $j = $aSecondHide[$i] To $aEndHide[$i]
@@ -60,6 +58,14 @@
 			For $j = $lblProfileNo[$i] To $cmbProfileType[$i]
 				GUICtrlSetState($j, $GUI_HIDE)
 			Next
+
+			; Update stats GUI
+			If $i <= 3 Then
+				For $j = $aStartHide[$i] To $aEndHide[$i]
+				   GUICtrlSetState($j, $GUI_HIDE)
+				Next
+			EndIf
+
 		EndIf
 	Next
 

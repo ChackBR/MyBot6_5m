@@ -116,6 +116,9 @@ Func _checkObstacles() ;Checks if something is in the way for mainscreen
 			Case _CheckPixel($aIsInactive, $bNoCapturePixel) ; Inactive only
 				SetLog("Village was Inactive, Reloading CoC...", $COLOR_ERROR)
 				If $ichkSinglePBTForced = 1 Then $bGForcePBTUpdate = True
+				PureClickP($aReloadButton, 1, 0, "#0131")			; Click for connection lost - DEMEN
+				Return True											; Click for connection lost - DEMEN
+
 			Case _CheckPixel($aIsConnectLost, $bNoCapturePixel) ; Connection Lost
 				;  Add check for banned account :(
 				$result = getOcrMaintenanceTime(171, 358 + $midOffsetY, "Check Obstacles OCR 'policy at super'=") ; OCR text for "policy at super"
@@ -136,8 +139,8 @@ Func _checkObstacles() ;Checks if something is in the way for mainscreen
 
 			Case _CheckPixel($aIsCheckOOS, $bNoCapturePixel) ; Check OoS
 				SetLog("Out of Sync Error, Reloading CoC...", $COLOR_ERROR)
-				PureClickP($aReloadButton, 1, 0, "#0131")			; Click for OOS - DEMEN
-				Return True											; Click for OOS - DEMEN
+				PureClickP($aReloadButton, 1, 0, "#0131")			; Click for connection lost - DEMEN
+				Return True											; Click for connection lost - DEMEN
 
 			Case _CheckPixel($aIsMaintenance, $bNoCapturePixel) ; Check Maintenance
 				$result = getOcrMaintenanceTime(171, 345 + $midOffsetY, "Check Obstacles OCR Maintenance Break=") ; OCR text to find wait time
