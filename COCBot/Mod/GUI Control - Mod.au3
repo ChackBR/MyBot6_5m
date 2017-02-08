@@ -58,14 +58,6 @@
 			For $j = $lblProfileNo[$i] To $cmbProfileType[$i]
 				GUICtrlSetState($j, $GUI_HIDE)
 			Next
-
-			; Update stats GUI
-			If $i <= 3 Then
-				For $j = $aStartHide[$i] To $aEndHide[$i]
-				   GUICtrlSetState($j, $GUI_HIDE)
-				Next
-			EndIf
-
 		EndIf
 	Next
 

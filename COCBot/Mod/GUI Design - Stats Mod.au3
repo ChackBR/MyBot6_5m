@@ -62,8 +62,8 @@ Global $aStartHide[8], $aSecondHide[8],$aEndHide[8]
 
 	   $aStartHide[$i] = GUICtrlCreateDummy()
 
-	   $grpVillageAcc[$i] = GUICtrlCreateGroup("Village name ", $x-10, $y + $i * $delY, 425, 75)
-;		If $i <= $nTotalProfile - 1 Then GUICtrlSetData(-1, "Village: " & $ProfileList[$i+1])
+	   $grpVillageAcc[$i] = GUICtrlCreateGroup("Village: ", $x-10, $y + $i * $delY, 425, 75)
+		If $i <= $nTotalProfile - 1 Then GUICtrlSetData(-1, "Village: " & $ProfileList[$i+1])
 
 		 GUICtrlCreateGraphic($x + 295, $y + $i * $delY, 115, 17, $SS_WHITERECT)
 		 $lblResultBuilderNowAcc[$i] = GUICtrlCreateLabel("", $x + 285, $y + $i * $delY, 30, 17, $SS_RIGHT)
